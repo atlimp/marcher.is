@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  loans:
+    build:
+      context: ./loans
+      dockerfile: dockerfile
+      target: base
+    restart: always
+    command: npm start
+  nginx:
+      image: nginx:latest
+      ports:
+          - "1313:8080"
+      volumes:
+          - ./nginx/lb.conf:/etc/nginx/conf.d/lb.conf
+      depends_on:
+          - loans
