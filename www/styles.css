@@ -1,8 +1,8 @@
 :root {
-    --col-grey: #394a51;
-    --col-green: #7fa99b;
-    --col-cream: #fbf2d5;
-    --col-orange: #fdc57b;
+    --col-black: #221E1D;
+    --col-white: #ECEAE0;
+    --col-green: #63AA9C;
+    --col-orange: #E9633B;
 }
 
 @font-face {
@@ -18,7 +18,7 @@
 }
 
 body {
-    background: var(--col-cream);
+    background: var(--col-white);
     display: flex;
     height: 100vh;
 }
@@ -28,7 +28,7 @@ main {
     margin: auto;
     width: 80%;
     font-family: 'Roboto Mono';
-    color: var(--col-grey);
+    color: var(--col-black);
 }
 
 .animate {
@@ -38,10 +38,10 @@ main {
 
 .link {
     text-decoration: none;
-    background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, var(--col-green) 50%);
+    background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, var(--col-orange) 50%);
     background-position: -0% 0;
     background-size: 200% auto;
-    color: var(--col-grey);
+    color: var(--col-black);
     line-height: 1.15em;
     text-decoration: none;
     transition: background-position 0.2s ease-out;
@@ -49,6 +49,7 @@ main {
 
 .link:hover {
     background-position: -99.99% 0;
+    color: var(--col-white)
 }
 
 @keyframes fadeInUp {
