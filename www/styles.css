@@ -22,7 +22,7 @@ body {
     display: flex;
     height: 100vh;
 }
-
+/*--*/
 main {
     opacity: 0;
     margin: auto;
