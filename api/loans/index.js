@@ -59,8 +59,12 @@ app.get('/payments', async (req, res) => {
     
     const nonIndexed = proposal.find(x => x.indexType === 'nonIndexed');
 
-    const loanAPayment = nonIndexed.loanA[0].estimatedTotalMonthlyPayment;
-    const loanBPayment = nonIndexed.loanB[0].estimatedTotalMonthlyPayment;
+	let loanAPayment = 0;
+	let loanBPayment = 0;
+	if (nonIndexed.loanA.length > 0 && nonIndexed.loanA[0])
+        loanAPayment = nonIndexed.loanA[0].estimatedTotalMonthlyPayment;
+	if (nonIndexed.loanB.length > 0 && nonIndexed.loanB[0])
+        loanBPayment = nonIndexed.loanB[0].estimatedTotalMonthlyPayment;
     
     return res.json({loanAPayment, loanBPayment});
 });
