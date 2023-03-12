@@ -17,6 +17,7 @@ services:
     command: npm start
   nginx:
       image: nginx:latest
+      restart: always
       ports:
           - "1313:8080"
       volumes:
