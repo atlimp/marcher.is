@@ -8,6 +8,13 @@ services:
       target: base
     restart: always
     command: npm start
+  properties:
+    build:
+      context: ./properties
+      dockerfile: dockerfile
+      target: base
+    restart: always
+    command: npm start
   nginx:
       image: nginx:latest
       ports:
@@ -16,3 +23,4 @@ services:
           - ./nginx/lb.conf:/etc/nginx/conf.d/lb.conf
       depends_on:
           - loans
+          - properties
