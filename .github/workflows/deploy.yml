@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "."
-        target: "/home/amp/marcher.is"
+        target: "/home/${{ secrets.USERNAME }}/marcher.is"
  
     - name: Executing remote command
       uses: appleboy/ssh-action@master
@@ -28,4 +28,8 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
+<<<<<<< HEAD
         script: marcherdeploy
+=======
+        script: ls
+>>>>>>> ea1f117faa5198de48b44c1f35e9346197715aa2
