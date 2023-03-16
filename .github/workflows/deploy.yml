@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "."
-        target: "/home/amp/marcher.is"
+        target: "/home/${{ secrets.USERNAME }}/marcher.is"
  
     - name: Executing remote command
       uses: appleboy/ssh-action@master
