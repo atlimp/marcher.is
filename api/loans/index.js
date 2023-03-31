@@ -27,19 +27,25 @@ async function getMonthlyPayments(req, res) {
         if (!details) {
             return res.json({ realEstateValue, loanAmount, loanType, loanAPayment: 0, loanBPayment: 0 });
         }
-    
+        
         const { proposal } = details;
         
         const nonIndexed = proposal.find(x => x.indexType === loanType);
-    
-        let loanAPayment = 0;
-        let loanBPayment = 0;
-        if (nonIndexed.loanA.length > 0)
-            loanAPayment = nonIndexed.loanA.reduce((k, u) => { return k + u.estimatedTotalMonthlyPayment }, 0);
-        if (nonIndexed.loanB.length > 0)
-            loanBPayment = nonIndexed.loanB.reduce((k, u) => { return k + u.estimatedTotalMonthlyPayment }, 0);;
         
-        return res.json({ realEstateValue, loanAmount, loanType, loanAPayment, loanBPayment });
+        let loanAPayment = 0;
+        let loanAInterest = 0;
+        let loanBPayment = 0;
+        let loanBInterest = 0;
+        if (nonIndexed.loanA.length > 0) {
+            loanAPayment = nonIndexed.loanA.reduce((k, u) => { return k + u.estimatedTotalMonthlyPayment }, 0);
+            loanAInterest = nonIndexed.loanA[0].interestRate;
+        }
+        if (nonIndexed.loanB.length > 0) {
+            loanBPayment = nonIndexed.loanB.reduce((k, u) => { return k + u.estimatedTotalMonthlyPayment }, 0);;
+            loanBInterest = nonIndexed.loanB[0].interestRate;
+        }
+        
+        return res.json({ realEstateValue, loanAmount, loanType, loanAPayment, loanBPayment, loanAInterest, loanBInterest });
     } catch (e) {
         console.error(e);
         return res.status(500).json({ error: 'unknown server error' }); 
