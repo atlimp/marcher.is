@@ -20,7 +20,7 @@ jobs:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
+        KEY: ${{ secrets.SSH_KEY }}
       with:
         source: "."
         target: "/home/${{ secrets.USERNAME }}/marcher.is"
@@ -31,5 +31,5 @@ jobs:
         host: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
+        KEY: ${{ secrets.SSH_KEY }}
         script: marcherdeploy
