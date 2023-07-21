@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: 'Roboto Mono';
-    src: url('Assets/Fonts/RobotoMono-Regular.ttf') format('truetype');
+    src: url('/Assets/Fonts/RobotoMono-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -68,4 +68,10 @@ main {
   
 .fadeInUp {
     animation-name: fadeInUp;
+}
+
+
+#eldgos {
+    box-sizing: border-box;
+    margin-top: 4rem;
 }
